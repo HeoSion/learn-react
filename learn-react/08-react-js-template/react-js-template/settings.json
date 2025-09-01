@@ -1,0 +1,27 @@
+{
+  
+  "search.exclude": {
+    "**/coverage": true,
+    "**/node_modules": true
+  },
+
+  "javascript.autoClosingTags": true,
+  "javascript.format.enable": false,
+  "javascript.validate.enable": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "javascript.format.insertSpaceAfterSemicolonInForStatements": true,
+  "javascript.inlayHints.parameterNames.enabled": "all",
+  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": true,
+  "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "javascript.inlayHints.variableTypes.enabled": true,
+  "javascript.suggest.autoImports": true,
+  "javascript.suggest.paths": false,
+
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+    "source.fixAll.eslint": "explicit",
+    "source.removeUnused": "explicit"
+  },
+
+}

@@ -1,0 +1,6 @@
+@layer normalize, base, animation;
+
+@import "./common/_normalize.css" layer(normalize);
+@import "./common/_base.css" layer(base);
+@import "./common/_animation.css" layer(animation);
+@import "./_demo.css";

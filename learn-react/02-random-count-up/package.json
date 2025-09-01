@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "name": "random-count-up-app-with-vanilla-react",
+  "description": "바닐라 리액트로 랜덤 카운트 업 애플리케이션을 구현합니다.",
+  "version": "1.0.0",
+  "scripts": {
+    "serve": "bunx live-server --host=localhost --port=3000 --no-browser"
+  }
+}

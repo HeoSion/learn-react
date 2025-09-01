@@ -1,0 +1,25 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family:
+    'Spoqa Han Sans Neo', 'Pretendard', 'Noto Sans KR', Arial, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+body {
+  overflow-y: scroll;
+  margin: 0;
+  padding: 2rem 0 1.5rem;
+  background: var(--bg-primary);
+  transition: background 0.3s ease;
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+}

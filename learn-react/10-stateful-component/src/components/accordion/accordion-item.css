@@ -1,0 +1,66 @@
+.accordion-item {
+  --easeInOutCirc: cubic-bezier(0.79, 0.14, 0.15, 0.86);
+
+  border-radius: 12px;
+  padding: 24px;
+  background-color: #edf4ff;
+  color: #191f28;
+
+  display: flex;
+  flex-flow: column;
+  gap: 8px;
+
+  dt {
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    color: #191f28;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.45;
+    letter-spacing: -0.5px;
+  }
+
+  dd {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-inline-start: 0;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: rgba(25, 31, 40, 0.8);
+    font-size: 15px;
+    line-height: 1.5;
+    letter-spacing: -0.5px;
+
+    /* 높이 애니메이션 설정 */
+    transition: height 0.25s var(--easeInOutCirc);
+    interpolate-size: allow-keywords;
+
+    height: 0;
+
+    .is-open & {
+      height: max-content;
+    }
+  }
+
+  button {
+    display: grid;
+    place-content: center;
+    inline-size: 24px;
+    height: 24px;
+    border: 0;
+    background-color: transparent;
+    transition: rotate 0.2s var(--easeInOutCirc);
+
+    .is-open & {
+      rotate: 180deg;
+    }
+
+    &:focus-visible {
+      outline: 2px solid currentColor;
+      border-radius: 100%;
+      color: #000;
+    }
+  }
+}

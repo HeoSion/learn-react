@@ -1,0 +1,6 @@
+.print-count {
+  font-size: 64px;
+  line-height: 1;
+  color: hsla(0 50% 60% / 0.3);
+  transform: rotateX(180deg);
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "product-dkjcs",
+    "name": "1A 우유",
+    "size": "900mL",
+    "price": 1880,
+    "quantity": 2,
+    "inventory": 5,
+    "imageUrl": "milk.jpg",
+    "category": "유제품"
+  },
+  {
+    "id": "product-cksoc",
+    "name": "맛있는 콩나물",
+    "size": "500g",
+    "price": 1280,
+    "quantity": 2,
+    "inventory": 12,
+    "imageUrl": "bean-sprouts.jpg",
+    "category": "채소"
+  },
+  {
+    "id": "product-wicks",
+    "name": "고소한 두부",
+    "size": "1kg",
+    "price": 2280,
+    "quantity": 1,
+    "inventory": 3,
+    "imageUrl": "tofu.jpg",
+    "category": "두부/콩제품"
+  }
+]

@@ -1,0 +1,61 @@
+@reference 'tailwindcss';
+
+.Game {
+  @apply flex justify-center gap-15;
+  @apply py-10;
+}
+
+.Status {
+  @apply text-xl mb-2;
+}
+
+.Squares {
+  @apply flex flex-wrap;
+  @apply size-61.5;
+  @apply border-3 border-black;
+}
+
+.Square {
+  @apply relative;
+  @apply cursor-pointer;
+  @apply flex items-center justify-center;
+  @apply size-20 p-0;
+  @apply bg-white text-3xl text-black;
+  @apply border-[0.1px] border-black;
+  @apply transition-colors duration-400 ease-out;
+  @apply focus:z-50 focus:outline-0 focus:bg-slate-100;
+  @apply focus-visible:outline-3 outline-black -outline-offset-3;
+
+  &[aria-disabled='true'] {
+    @apply cursor-not-allowed bg-slate-100;
+  }
+}
+
+.History {
+  @apply min-w-25;
+  @apply mt-8.5;
+}
+
+.HistoryList {
+  @apply flex flex-col gap-2;
+  @apply m-0 pl-0;
+}
+
+.HistoryListItem {
+  @apply list-[decimal-leading-zero];
+}
+
+.HistoryButton {
+  @apply relative cursor-pointer;
+  @apply disabled:cursor-not-allowed;
+  @apply border-0 rounded;
+  @apply py-[0.4em] px-[0.8em];
+  @apply bg-black text-white disabled:bg-slate-200 disabled:text-slate-600;
+  @apply focus:z-50 focus:outline-0;
+  @apply focus-visible:outline-2 outline-black outline-offset-2;
+  @apply transition-colors duration-200;
+
+  &:not(:disabled):active {
+    @apply scale-94;
+  }
+}

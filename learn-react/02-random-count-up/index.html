@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>바닐라 리액트</title>
+    <meta name="description" content="별도 도구 없이 순수하게 리액트(React)만으로 간단한 앱을 작성하는 것 시작해봅시다." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/images/react.svg" type="image/xml+svg" />
+    <link rel="stylesheet" href="https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css" crossorigin />
+    <link rel="stylesheet" href="./assets/styles/main.css" />
+  </head>
+  <body>
+
+    <noscript>
+      이 사이트를 이용하려면?<br />
+      사용 중인 웹 브라우저에서 JavaScript를 활성화 해야 합니다.
+    </noscript>
+
+    <div id="container"></div>
+
+    <template>
+      <!-- 리액트를 사용해 렌더링 할 마크업: 시작 -->
+      <div class="randomCountUpApp">
+        <svg class="logo" aria-label="리액트" viewBox="0 0 21 21" fill="none">
+          <g clip-path="url(#clip-0zk)">
+            <path
+              d="M10.5 12.45C11.6046 12.45 12.5 11.5546 12.5 10.45C12.5 9.34543 11.6046 8.45 10.5 8.45C9.39543 8.45 8.5 9.34543 8.5 10.45C8.5 11.5546 9.39543 12.45 10.5 12.45Z"
+              fill="currentColor"
+            />
+            <path
+              d="M10.5 14.95C16.0228 14.95 20.5 12.9353 20.5 10.45C20.5 7.96472 16.0228 5.95 10.5 5.95C4.97715 5.95 0.5 7.96472 0.5 10.45C0.5 12.9353 4.97715 14.95 10.5 14.95Z"
+              stroke="currentColor"
+            />
+            <path
+              d="M6.60289 12.7C9.36431 17.4829 13.3477 20.3529 15.5 19.1103C17.6523 17.8676 17.1585 12.9829 14.3971 8.2C11.6357 3.41707 7.65232 0.547105 5.5 1.78975C3.34768 3.03239 3.84146 7.91707 6.60289 12.7Z"
+              stroke="currentColor"
+            />
+            <path
+              d="M6.60289 8.2C3.84146 12.9829 3.34768 17.8676 5.5 19.1103C7.65232 20.3529 11.6357 17.4829 14.3971 12.7C17.1585 7.91707 17.6523 3.03239 15.5 1.78975C13.3477 0.547105 9.36431 3.41707 6.60289 8.2Z"
+              stroke="currentColor"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip-0zk">
+              <rect
+                width="21"
+                height="21"
+                fill="#fff"
+                transform="translate(0 1)"
+              />
+            </clipPath>
+          </defs>
+        </svg>
+        <output class="output">0</output>
+        <p class="shortcut-info"><code>Shift + Enter</code> 키를 누르면 애니메이션이 다시 시작됩니다.</p>
+      </div>
+      <!-- 리액트를 사용해 렌더링 할 마크업: 끝 -->
+    </template>
+
+    <!-- React, ReactDOM 라이브러리 CDN으로 불러오기 -->
+    <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin></script>
+
+    <script data-description="바닐라 자바스크립트 + 리액트 API로 구현합니다.">
+      {
+        // -----------------------------------------------------------------------
+        // ✅ RandomCountUp 미니 앱 구현
+        // -----------------------------------------------------------------------
+        // - [ ] 바닐라 자바스크립트를 사용해 프로그래밍
+        // - [ ] 리액트를 사용해 마크업 생성
+        // -----------------------------------------------------------------------
+
+        // 최솟값 MIN 설정 (30 이상)
+        // 최댓값 MAX 설정 (99 이하)
+        const MIN = 30, MAX = 99
+
+        // 랜덤값을 반환하는 getRandomMinMax 유틸리티 함수 작성
+        function getRandomMinMax(min = MIN, max = MAX) {
+          if (min >= max) throw new Error('min 값이 max 값보다 크거나 같으면 안됩니다.')
+          return Math.round(Math.random() * (max - min) + min)
+        }
+        
+        // 랜덤 색상 값 반환 getRandomHue 유틸리티 함수 작성
+        function getRandomHue() {
+          return getRandomMinMax(0, 360)
+        }
+
+        // 문서 타이틀 ORIGIN_TITLE 설정
+        const ORIGIN_TITLE = document.title
+
+        // 목표 카운트 targetCount 설정 함수(기능) 추가
+        let targetCount 
+
+        function setTargetCount() {
+          targetCount = getRandomMinMax()
+        }
+
+        // 문서 타이틀 업데이트 함수(기능) 추가
+        // - '원본 제목 (목표 카운트)'
+        function setDocumentTitle() {
+          document.title = ORIGIN_TITLE + ` (${targetCount})`
+        }
+
+        // body 요소에 랜덤 색상(hue) 설정
+        // - CSS 커스텀 속성 `--hue` 값 변경
+        function setAppRandomHue() {
+          document.body.style.setProperty('--hue', getRandomHue())
+        }
+
+        // count 초깃값 설정
+        let count = 0
+
+        // DOM 컨테이너 요소 참조
+        const container = document.getElementById('container')
+        
+        // 유효성 검사
+        if (!container) throw new Error('문서에 #container 요소가 존재하지 않습니다.')
+
+        // ReactDOMRoot 생성
+        const reactDOMRoot = ReactDOM.createRoot(container)
+
+        // logoElement 리액트 요소 생성
+        // SVG -> React.ReactElement
+        const logoElement = React.createElement(
+          // type
+          'svg', 
+          // props
+          {
+            'className': 'logo',
+            'aria-label': '리액트',
+            'viewBox': '0 0 21 21',
+            'fill': 'none'
+          },
+          // ...children
+          React.createElement(
+            'g', 
+            { 'clipPath': 'url(#clip-0zk)' },
+            React.createElement('path', { 'd': 'M10.5 12.45C11.6046 12.45 12.5 11.5546 12.5 10.45C12.5 9.34543 11.6046 8.45 10.5 8.45C9.39543 8.45 8.5 9.34543 8.5 10.45C8.5 11.5546 9.39543 12.45 10.5 12.45Z', 'fill': 'currentColor' }),
+            React.createElement('path', { 'd': 'M10.5 14.95C16.0228 14.95 20.5 12.9353 20.5 10.45C20.5 7.96472 16.0228 5.95 10.5 5.95C4.97715 5.95 0.5 7.96472 0.5 10.45C0.5 12.9353 4.97715 14.95 10.5 14.95Z', 'stroke': 'currentColor' }),
+            React.createElement('path', { 'd': 'M6.60289 12.7C9.36431 17.4829 13.3477 20.3529 15.5 19.1103C17.6523 17.8676 17.1585 12.9829 14.3971 8.2C11.6357 3.41707 7.65232 0.547105 5.5 1.78975C3.34768 3.03239 3.84146 7.91707 6.60289 12.7Z', 'stroke': 'currentColor' }),
+            React.createElement('path', { 'd': 'M6.60289 8.2C3.84146 12.9829 3.34768 17.8676 5.5 19.1103C7.65232 20.3529 11.6357 17.4829 14.3971 12.7C17.1585 7.91707 17.6523 3.03239 15.5 1.78975C13.3477 0.547105 9.36431 3.41707 6.60289 8.2Z', 'stroke': 'currentColor' }),
+          ),
+          React.createElement('defs', {}, 
+            React.createElement('clipPath', { id: 'clip-0zk' },
+              React.createElement('rect', {
+                'width': 21,
+                'height': 21,
+                'fill': '#fff',
+                'transform': 'translate(0 1)'
+              })
+            )
+          )
+        )
+
+        // shortcutElement 리액트 요소 생성
+        const shortcutElement = React.createElement('p', { className: 'shortcut-info' },
+          React.createElement('code', {}, 'Shift + Enter'),
+          ' 키를 누르면 애니메이션이 다시 시작됩니다.'
+        )
+
+        // render 함수
+        // - 화면에 애플리케이션 렌더링
+        // - ReactDOMRoot.render(ReactElement)
+        function render() {
+          const app = React.createElement(
+            'div', 
+            { className: 'randomCountUpApp' },
+            logoElement,
+            React.createElement('output', { className: 'output' }, count),
+            shortcutElement
+          )
+
+          reactDOMRoot.render(app)
+        }
+
+        // animate 함수
+        // - 카운트 업 애니메이션 렌더링
+        // - 재귀 호출(Recursion) 활용
+        // - requestAnimationFrame 활용
+        // - cancelAnimationFrame 활용
+        let animateId
+
+        function animate() {
+          count += 1
+
+          if (count > targetCount) {
+            return cancelAnimationFrame(animateId)
+          }
+
+          render()
+
+          animateId = requestAnimationFrame(animate) // 60FPS (1000 / 60 = 16.666ms)
+        }
+
+        // play 함수
+        function play() {
+          setTargetCount()
+          setDocumentTitle()
+          setAppRandomHue()
+          animate()
+        }
+
+        // replay 함수
+        // - 카운트 업 애니메이션 리플레이
+        function replay() {
+          count = 0
+          play()
+        }
+
+        // 이벤트 리스닝
+        // - DOMContentLoaded (로드 이후, 애니메이션 실행)
+        // - click (클릭할 때, 리플레이)
+        // - keydown (Shift + Enter 키를 누르면, 리플레이)
+
+        document.addEventListener('DOMContentLoaded', () => {
+          play()
+          
+          document.body.addEventListener('click', replay)
+          document.body.addEventListener('keydown', (e) => {
+            if (e.shiftKey && e.code === 'Enter') replay()
+          })
+        })
+        
+      }
+    </script>
+  </body>
+</html>
