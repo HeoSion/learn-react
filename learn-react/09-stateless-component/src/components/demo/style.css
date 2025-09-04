@@ -1,9 +1,0 @@
-.demo {
-  display: flex;
-  gap: 12px;
-  margin-block: 12px;
-
-  &.col {
-    flex-direction: column;
-  }
-}
