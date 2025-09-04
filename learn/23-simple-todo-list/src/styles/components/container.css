@@ -1,0 +1,5 @@
+.container {
+  max-inline-size: 600px;
+  inline-size: 90vw;
+  margin-inline: auto;
+}

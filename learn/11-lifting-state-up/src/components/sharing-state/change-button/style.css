@@ -1,0 +1,22 @@
+.change-button {
+  padding: 0.6em 1em;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+  border-style: none;
+  border-radius: 9999px;
+  background-color: hsl(240 20% 93%);
+  color: hsl(240 17% 10%);
+
+  &:hover {
+    background-color: hsl(0 0% 85%);
+  }
+
+  &:focus-visible {
+    outline: 2px solid hsl(0 0% 80%);
+  }
+
+  &:active {
+    scale: 0.95;
+  }
+}

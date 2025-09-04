@@ -1,0 +1,28 @@
+.demo {
+  --space: 20px;
+  --gap: 20px;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: start;
+  align-content: start;
+  align-items: start;
+  gap: var(--gap);
+  min-block-size: calc(100vh - calc(var(--space) * 2));
+  margin: var(--space);
+  font-family: 'Spoqa Han Sans Neo';
+  transition: margin 0.3s var(--ease-out-expo), inline-size 0.3s var(--ease-out-expo);
+
+  @media (min-width: 800px) {
+    margin: 2rem 10vw;
+    inline-size: 80vw;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 300;
+  }
+}

@@ -1,0 +1,11 @@
+body {
+  color-scheme: light dark;
+  overflow-y: scroll;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+abbr[title] {
+  cursor: help;
+  text-decoration: none;
+}

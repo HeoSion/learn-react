@@ -1,0 +1,22 @@
+[
+  {
+    "id": "accordion-zidjw",
+    "question": "피그마에서 여러 컴포넌트의 색상을 한 번에 바꿀 수 있는 플러그인은 뭐가 있나요?",
+    "answer": "Batch Styler를 추천합니다. 여러 색상 스타일을 한 번에 수정할 수 있어서 정말 편해요."
+  },
+  {
+    "id": "accordion-qkcis",
+    "question": "피그마에서 더미 데이터를 손쉽게 채울 수 있는 플러그인이 있을까요?",
+    "answer": "Content Reel을 써보세요. 이름, 이메일, 이미지 등 다양한 더미 데이터를 손쉽게 넣을 수 있습니다."
+  },
+  {
+    "id": "accordion-alsci",
+    "question": "피그마에서 아이콘을 빠르게 찾고 삽입할 수 있는 플러그인 추천해 주세요.",
+    "answer": "Iconify를 추천합니다. 수많은 아이콘 라이브러리를 검색해서 바로 삽입할 수 있어요."
+  },
+  {
+    "id": "accordion-ocske",
+    "question": "텍스트 바꾸기 좋은 피그마 플러그인은 뭐가 있을까요? 추천 해주세요.",
+    "answer": "Font Replacer를 사용해 보세요. 미리보기 기능을 지원해서 편의성 짱짱짱입니다."
+  }
+]

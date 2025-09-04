@@ -1,0 +1,22 @@
+[
+  {
+    "key": "good",
+    "message": "좋아요!"
+  },
+  {
+    "key": "soGood",
+    "message": "훈훈해요!"
+  },
+  {
+    "key": "sad",
+    "message": "슬퍼요!"
+  },
+  {
+    "key": "angry",
+    "message": "화나요!"
+  },
+  {
+    "key": "want",
+    "message": "원해요!"
+  }
+]

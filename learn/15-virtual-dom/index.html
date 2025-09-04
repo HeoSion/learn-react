@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>리액트 템플릿 (Bun + Vite)</title>
+    <meta name="description" content="리액트 템플릿 (Bun + Vite)" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css"
+      crossorigin
+    />
+    <link rel="icon" href="/react.svg" type="image/xml+svg" />
+    <script type="module" src="./src/main.jsx"></script>
+  </head>
+  <body>
+    <noscript>
+      이 사이트를 이용하려면?<br />
+      사용 중인 웹 브라우저에서 JavaScript를 활성화 해야 합니다.
+    </noscript>
+
+    <div id="root"></div>
+
+    <template
+      data-description="바닐라 프로그래밍 방식의 화면 업데이트 (비용 많이 듬)"
+    >
+      <ul id="todo-list"></ul>
+      <script>
+        {
+          const todos = []
+          const DELAY = 200
+
+          const state = {
+            count: 5,
+          }
+
+          const setState = (newState) => {
+            // 상태 업데이트
+            const nextState = { ...state, ...newState }
+            // 리렌더링
+            updateListItem(nextState.count)
+            // 변경된 상태 반환
+            return nextState
+          }
+
+          // 이전 상태
+          console.log(state)
+          // 렌더링
+          updateListItem(state.count)
+
+          // 이벤트 리스닝
+          document.onclick = () => {
+            // 상태 업데이트 요청
+            const nextState = setState({ count: state.count + 1 })
+
+            // 현재 상태
+            console.log(nextState)
+          }
+
+          function updateListItem(count) {
+            if (count === 0) return
+            todos.push({ text: todos.length + 1, completed: true })
+            updateList()
+
+            setTimeout(() => {
+              updateListItem(--count)
+            }, DELAY)
+          }
+
+          // 실제 DOM 직접 조작 - 비효율적
+          function updateList() {
+            const list = document.getElementById('todo-list')
+
+            // 매번 전체 리스트를 다시 생성
+            // 정리(cleanup)
+            list.innerHTML = ''
+
+            todos.forEach((todo) => {
+              const li = document.createElement('li')
+              li.textContent = todo.text
+              li.className = todo.completed ? 'completed' : ''
+              list.appendChild(li) // 각 요소마다 DOM 조작 발생
+            })
+
+            // 브라우저는 매번 레이아웃 재계산과 리페인트를 수행
+          }
+        }
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "user-han-di1k",
+    "name": "이주아",
+    "age": 21,
+    "phoneNumber": "010-1234-5678",
+    "address": "서울시 강남구 테헤란로 123"
+  },
+  {
+    "id": "user-han-2k3s",
+    "name": "한민수",
+    "age": 24,
+    "phoneNumber": "010-9876-5432",
+    "address": "서울시 마포구 월드컵북로 456"
+  },
+  {
+    "id": "user-han-3j7v",
+    "name": "최지수",
+    "age": 22,
+    "phoneNumber": "010-1357-2468",
+    "address": "서울시 송파구 올림픽로 789"
+  }
+]

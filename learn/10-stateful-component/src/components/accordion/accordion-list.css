@@ -1,0 +1,22 @@
+.accordion-section {
+  h2 {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-block: 20px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 0.81;
+    color: #000;
+    letter-spacing: -1px;
+  }
+}
+
+.accordion-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  max-inline-size: 342px;
+  margin: 0;
+}

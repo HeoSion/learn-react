@@ -1,0 +1,9 @@
+{
+  "private": false,
+  "name": "using-react-standard-api",
+  "description": "리액트 라이브러리 표준 API 학습",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "bunx live-server --host=localhost --port=3000 --no-browser"
+  }
+}

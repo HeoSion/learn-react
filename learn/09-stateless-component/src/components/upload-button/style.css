@@ -1,0 +1,31 @@
+.upload-icon {
+  --min-width: 88px;
+  --background-color: #fff;
+  --shadow-color: #dbddf0;
+  --text-color: #525577;
+  --disabled-color: #adaeb6;
+  --radius: 30px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  min-inline-size: var(--min-width);
+  border: 0;
+  padding: 9px 12px;
+  border-radius: var(--radius);
+  background: var(--background-color);
+  box-shadow: 0 4px 4px 0 var(--shadow-color);
+  color: var(--text-color);
+
+  .upload-button__label {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: var(--disabled-color);
+  }
+}

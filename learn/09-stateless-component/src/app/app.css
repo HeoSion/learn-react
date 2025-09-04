@@ -1,0 +1,20 @@
+.app {
+  padding-inline: 20px;
+  font-family: 'Neo Spoqa Sans';
+
+  article {
+    margin-block: 36px;
+  }
+
+  h1 {
+    font-size: 1.875rem;
+    font-weight: 400;
+    line-height: 2.25rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 2rem;
+  }
+}

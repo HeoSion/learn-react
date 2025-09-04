@@ -1,0 +1,43 @@
+{
+  "private": true,
+  "type": "module",
+  "name": "react-js",
+  "description": "리액트 빌드 환경을 구성합니다.",
+  "version": "1.0.0",
+  "bun-create": {
+    "preinstall": [],
+    "postinstall": [],
+    "start": "bun run dev"
+  },
+  "scripts": {
+    "dev": "bun run .bun/dev.js",
+    "prod": "run-s clean build",
+    "build": "bun run .bun/build.js",
+    "preview": "bun run .bun/preview.js",
+    "format:check": "prettier --check --cache \"src/**/*.{js,jsx,json}\"",
+    "format:fix": "prettier --write --cache --list-different \"src/**/*.{js,jsx,json}\"",
+    "lint:check": "eslint \"src/**/*.{js,jsx,json}\" --cache --cache-location ./node_modules/.cache/eslint/.eslintcache",
+    "lint:fix": "bun lint:check --fix",
+    "clean": "rimraf -rf dist"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.32.0",
+    "eslint": "^9.32.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "globals": "^16.3.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.6.2",
+    "rimraf": "^6.0.1"
+  },
+  "engines": {
+    "bun": ">=1.0.0"
+  }
+}

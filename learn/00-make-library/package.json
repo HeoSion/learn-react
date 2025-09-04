@@ -1,0 +1,9 @@
+{
+  "private": false,
+  "name": "make-library",
+  "description": "선언적 프로그래밍 방식의 라이브러리 만들기",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "bunx live-server --host=localhost --port=3000 --no-browser"
+  }
+}
